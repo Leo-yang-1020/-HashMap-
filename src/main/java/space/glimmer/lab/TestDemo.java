@@ -1,34 +1,24 @@
 package space.glimmer.lab;
 
+import space.glimmer.lab.container.Bucket;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class TestDemo {
     public static void main(String[] args) {
-        //Map<String, String> smap = new HashMap();//一般的HashMap
-        GlimmerHashMap smap=new GlimmerHashMap();
-        smap.put("Hello", "Hey");
-        smap.put("Fruit", "Apple");
-        smap.put("Vegetable", "Tomato");
-        smap.put("JunkFood", "FrenchFried");
-        System.out.println(smap.get("JunkFood"));
-        smap.put("JunkFood", "Cola");
-        smap.put("JunkFood", "OrangeJuice");
-        smap.put("JunkFood", "KFC");
-        smap.put("Drink", "Cola");
-
         GlimmerHashMap tmap = new GlimmerHashMap();
-
-//        for (Map.Entry<String, String> entry : smap.entrySet()) {
-//            tmap.put(entry.getKey(), entry.getValue());
-//        }
-        System.out.println(smap.get("JunkFood"));
-        smap.remove("JunkFood");
-        System.out.println(smap.get("JunkFood"));
-
-//        GlimmerHashMap gmp=new GlimmerHashMap();
-//        gmp.put("Drink","cola");
-//        gmp.remove("Drink");
-//        System.out.println(gmp.get("Drink"));
+        tmap.put("EaFBFBFBFBFBFBFBFBFB", "b");
+        tmap.put("FBEaFBFBFBFBFBFBFBFB", "b");
+        tmap.put("FBFBEaFBFBFBFBFBFBFB", "b");
+        tmap.put("FBFBFBEaFBFBFBFBFBFB", "b");
+        tmap.put("FBFBFBFBEaFBFBFBFBFB", "b");
+        tmap.put("FBFBFBFBFBEaFBFBFBFB", "b");
+        tmap.put("FBFBFBFBFBFBEaFBFBFB", "b");
+        tmap.put("FBFBFBFBFBFBFBEaFBFB", "b");
+        tmap.put("FBFBFBFBFBFBFBFBEaFB", "b");
+        tmap.put("a", "b");
+        tmap.put("b", "b");
+        System.out.println(tmap.size());
     }
 }

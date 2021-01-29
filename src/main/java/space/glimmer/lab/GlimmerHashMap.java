@@ -1,6 +1,7 @@
 package space.glimmer.lab;
 
 import space.glimmer.lab.container.Bucket;
+import space.glimmer.lab.container.Entry;
 
 import java.util.HashMap;
 
@@ -58,14 +59,13 @@ public class GlimmerHashMap {
         //todo:write your code here for part-a
         int size = 0;
         for (Bucket bucket : buckets) {
+            if(bucket!=null)
             size += bucket.getNum();
         }
-        return 0;
-        // 这里我觉得要遍历hashmap找元素个数有点nt，
-        // 计算hashmap个数可以在put方法时计算，每次成功的非替换put增加一次，暂时偷个懒
-
+        return size;
+        // 这里我觉得要遍历hashmap找元素个数有点nt，应该说是非常nt
+        // 计算hashmap个数可以在put方法时计算，每次成功的非替换put增加一次，每次remove后size-1,暂时偷个懒
     }
-
     /**
      * 通过key获取一个元素,如果没有则返回 ""
      *
@@ -93,6 +93,8 @@ public class GlimmerHashMap {
         //todo:write your code here for part-a
         //todo:write your code here for part-b
         //todo:write your code here for part-c
+        if(size()>=threshold)
+            resize();
         Bucket bucket = getBucket(key);
         if(bucket.getNum()>=8){
             //先检查，如果插入后会大于8，则先转化为BST再插入
@@ -129,6 +131,20 @@ public class GlimmerHashMap {
      */
     private void resize() {
         //todo:write your code here for part-c
+        bucketLen*=2;
+        threshold*=2;
+        Bucket []oldBuckets=buckets;
+        buckets = new Bucket[bucketLen];
+        for (int i = 0; i < buckets.length; i++) {
+            buckets[i] = new Bucket();
+        }
+        int i=0;
+        for(Bucket bucket:oldBuckets){
+            for(Entry entry:bucket.getAllEntries()){
+                put(entry.key,entry.value);
+            }
+        }
+
 
     }
 

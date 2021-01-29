@@ -7,7 +7,6 @@ import space.glimmer.lab.container.Entry;
 public class TestB {
     public static void main(String[] args) {
         Bst tmap = new Bst();
-
         tmap.updateElement(new Entry("EaFBFBFBFBFBFBFBFBFB", "b"));
         tmap.updateElement(new Entry("FBEaFBFBFBFBFBFBFBFB", "c"));
         tmap.updateElement(new Entry("FBFBEaFBFBFBFBFBFBFB", "d"));
@@ -19,6 +18,6 @@ public class TestB {
         tmap.searchElement("FBFBFBFBFBFBFBFBEaFB");
         tmap.updateElement(new Entry("FBFBFBFBFBFBFBFBEaFB", "j"));
         System.out.println(tmap.getNum());
-        System.out.println(tmap.searchElement("FBFBFBFBFBFBFBFBEaFB").value);
+        System.out.println();
     }
 }

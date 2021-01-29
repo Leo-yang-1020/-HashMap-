@@ -71,6 +71,7 @@ public class Bst implements BucketContainer {
     @Override
     public void addElement(Entry e) {
         //todo:write your code here for part-b
+        updateElement(e);
     }
 
     /**
