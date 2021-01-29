@@ -93,8 +93,11 @@ public class GlimmerHashMap {
         //todo:write your code here for part-a
         //todo:write your code here for part-b
         //todo:write your code here for part-c
-        int i = hashIt(key);
-        Bucket bucket = buckets[i];
+        Bucket bucket = getBucket(key);
+        if(bucket.getNum()>=8){
+            //先检查，如果插入后会大于8，则先转化为BST再插入
+            bucket.nodelistToBst();
+        }
         return bucket.putValue(key, value);
 
 
@@ -110,10 +113,12 @@ public class GlimmerHashMap {
     public String remove(String key) {
         //todo:write your code here for part-a
         //todo:write your code here for part-b
-        int i = hashIt(key);
-        Bucket bucket = buckets[i];
+        Bucket bucket = getBucket(key);
+        if(bucket.getNum()<=6){
+            //先检查，如果当前元素小于等于6个，则先转化，再插入
+            bucket.bstToNodelist();
+        }
         return bucket.removeValue(key);
-
     }
 
     /**

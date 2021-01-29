@@ -90,6 +90,11 @@ public class Bucket {
      */
     public void nodelistToBst() {
         //todo:write your code here for part-b
+        Entry[] entries = container.traverse();
+        container=new Bst();
+        for(Entry entry: entries){
+            container.updateElement(entry);
+        }
     }
 
     /**
@@ -97,6 +102,12 @@ public class Bucket {
      */
     public void bstToNodelist() {
         //todo:write your code here for part-b
+        Entry[] entries = container.traverse();
+        container=new NodeList();
+        for(Entry entry: entries){
+            container.addElement(entry);
+        }
+
     }
 
 }
